@@ -1,0 +1,56 @@
+{
+  "name": "jev-evals",
+  "version": "0.1.0",
+  "description": "Rubric-based eval harness for LLM/agent outputs, backed by the typesafe-ai/jev evaluation model via Vercel AI Gateway. Cheap enough (~$0.04/1M input tokens, one round trip per case) to run on every PR.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "jev-evals": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "keywords": [
+    "eval",
+    "evals",
+    "llm",
+    "llm-as-judge",
+    "rubric",
+    "jev",
+    "ai-sdk",
+    "ci",
+    "agent"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "ai": "^7.0.105"
+  },
+  "devDependencies": {
+    "ai": "^7.0.105",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "@types/node": "^22.10.2"
+  },
+  "engines": {
+    "node": ">=18.17"
+  }
+}
