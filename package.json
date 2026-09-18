@@ -14,7 +14,7 @@
     "./package.json": "./package.json"
   },
   "bin": {
-    "jev-evals": "./dist/cli.js"
+    "jev-evals": "dist/cli.js"
   },
   "files": [
     "dist",

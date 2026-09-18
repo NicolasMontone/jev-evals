@@ -26,7 +26,8 @@ describe.skipIf(!hasCreds)('live Jev call (AI Gateway)', () => {
 
     const result = await runEval(suite);
     expect(result.perCase).toHaveLength(1);
-    expect(result.perCase[0].rubrics.correct.passed).toBe(true);
+    const [caseResult] = result.perCase;
+    expect(caseResult?.rubrics.correct?.passed).toBe(true);
     expect(result.success).toBe(true);
   }, 30_000);
 });
